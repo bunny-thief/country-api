@@ -20,6 +20,11 @@ MongoClient.connect(connectionString)
             countries.find().toArray()
                 .then(result => res.json(result))
         })
+
+        app.get('/api/countries/:country', (req, res) => {
+            countries.findOne({ country: req.params.country })
+                .then(result => res.json(result))
+        })
     })
     .catch(err => console.error(`$error: {err}, line: ${err.lineNumber} `))
 
