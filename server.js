@@ -6,12 +6,15 @@ const connectionString = process.env.CONNECTION_STRING
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
+const path = require('node:path')
 
 MongoClient.connect(connectionString)
     .then(client => {
         console.log('Connected to Database')
         const db = client.db(process.env.db)
         const countries = db.collection(process.env.COLLECTION)
+
+        app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')))
     })
     .catch(err => console.error(`$error: {err}, line: ${err.lineNumber} `))
 
