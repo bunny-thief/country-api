@@ -15,6 +15,11 @@ MongoClient.connect(connectionString)
         const countries = db.collection(process.env.COLLECTION)
 
         app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')))
+
+        app.get('/api/countries', (req, res) => {
+            countries.find().toArray()
+                .then(result => res.json(result))
+        })
     })
     .catch(err => console.error(`$error: {err}, line: ${err.lineNumber} `))
 
