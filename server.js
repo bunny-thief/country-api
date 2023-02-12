@@ -6,7 +6,7 @@ const connectionString = process.env.CONNECTION_STRING
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const path = require('node:path')
+const path = require('path')
 
 MongoClient.connect(connectionString)
     .then(client => {
