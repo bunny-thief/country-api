@@ -26,6 +26,6 @@ MongoClient.connect(connectionString)
                 .then(result => res.json(result))
         })
     })
-    .catch(err => console.error(`$error: {err}, line: ${err.lineNumber} `))
+    .catch(err => console.error(`error: ${err}, line: ${err.lineNumber} `))
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
