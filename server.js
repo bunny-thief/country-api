@@ -9,7 +9,7 @@ const path = require('path')
 MongoClient.connect(connectionString)
     .then(client => {
         console.log('Connected to Database')
-        const db = client.db(process.env.db)
+        const db = client.db(process.env.DB)
         const countries = db.collection(process.env.COLLECTION)
 
         app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')))
