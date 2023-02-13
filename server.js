@@ -6,7 +6,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const path = require('path')
 
-MongoClient.connect(`${connectionString}`)
+MongoClient.connect(connectionString)
     .then(client => {
         console.log('Connected to Database')
         const db = client.db(process.env.db)
